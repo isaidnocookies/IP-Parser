@@ -77,9 +77,10 @@ class IP_Parser:
 
         # Filter out exclusions
         self.generateExclusionList()
-
         ipList = [ip for ip in ipList if ip not in self.ip_exclusion]
-        self.ip_list = ipList
+
+        ipSet = set(ipList)
+        self.ip_list = list(ipSet)
 
     def generateExclusionList(self):
         print ("Generating IP Exclusion List...")
@@ -90,7 +91,8 @@ class IP_Parser:
             if "exclusion_file" in entries:
                 ipExList = ipExList + self.parseIpFile(entries['exclusion_file'])
 
-        self.ip_exclusion = ipExList
+        ipExSet = set(ipExList)
+        self.ip_exclusion = list(ipExSet)
 
     def exportBySubnet(self, cidrMask):
         print ("Segmenting IP List by Subnet")

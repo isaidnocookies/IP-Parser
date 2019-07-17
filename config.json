@@ -3,6 +3,7 @@
     "ranges": [
         {"tag": "corp", "target": "10.0.0.0/28"},
         {"tag": "web_server", "target": "10.1.0.16"},
+        {"tag": "web_server_dup", "target": "10.1.0.16"},
         {"tag": "IT", "target_file": "./target_files/it_ip_list.txt"}
     ],
     "exclusions": [
