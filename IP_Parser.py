@@ -153,5 +153,4 @@ if __name__ == '__main__':
     parser.loadConfigFromFile()
     parser.generateIPList()
     parser.exportBySubnet("/16")
-
     print("\nComplete!")
