@@ -1,0 +1,18 @@
+{
+    "name": "IP Config Test",
+    "ranges": [
+        {"tag": "corp", "target": "10.0.0.0/28"},
+        {"tag": "web_server", "target": "10.1.0.16"},
+        {"tag": "IT", "target_file": "./target_files/it_ip_list.txt"}
+    ],
+    "exclusions": [
+        {"tag": "no_scan_tag", "exclusion": "10.0.0.0"},
+        {"tag": "no_scan_tag", "exclusion": "10.0.0.0/30"},
+        {"tag": "no_scan_tag", "exclusion": "192.168.113.3"}
+    ],
+    "export" : {
+        "filename" : "",
+        "export_by_subnet" : true,
+        "export_network_subnet_cidr_mask" : "/16"
+    }
+}

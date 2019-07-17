@@ -1,0 +1,13 @@
+{
+    "name": "IP Config Test",
+    "ranges": [
+        {"tag": "ip_1", "target": "10.0.1.6"},
+        {"tag": "range_2", "target": "10.0.1.0/30"}
+    ],
+    "exclusions": [
+        {"tag": "exclude_this", "exclusion": "10.0.1.0"}
+    ],
+    "export" : {
+        "filename" : ""
+    }
+}
