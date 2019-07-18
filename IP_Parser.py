@@ -80,8 +80,7 @@ class IP_Parser:
         ipList = [ip for ip in ipList if ip not in self.ip_exclusion]
 
         ipSet = set(ipList)
-        ipList = list(ipSet).sort()
-        self.ip_list = ipList
+        self.ip_list = list(ipSet)
 
     def generateExclusionList(self):
         print ("Generating IP Exclusion List...")
