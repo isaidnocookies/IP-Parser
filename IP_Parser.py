@@ -24,7 +24,7 @@ class IP_Parser:
 
     def loadConfigFromObject(self, iConfigObject):
         self.config = iConfigObject
-    
+
     def loadConfigFromFile(self):
         try:
             with open(self.config_file) as json_config_file:
@@ -40,7 +40,7 @@ class IP_Parser:
             timeStr = datetime.datetime.fromtimestamp(theTime).strftime('%Y_%m_%d_%H_%M_%S')
         else:
             timeStr = datetime.datetime.fromtimestamp(theTime).strftime('%Y_%m_%d')
-        
+
         return timeStr
 
     def parseIpFile(self, iIpFileName):
@@ -54,13 +54,13 @@ class IP_Parser:
         subnets = [self.parseIpRange(output[i]) for i in range(len(output)) if (output[i].find('/') > -1)]
         subnets = [entry for subnet in subnets for entry in subnet] #flatten list of subnets (lists)
         output = [output[i] for i in range(len(output)) if (str(output[i]).find('/') == -1)]
-        
+
         return output + subnets
-    
+
     def parseIpRange(self, iIpRange):
         if iIpRange.find('/') == -1:
             return [iIpRange]
-        try: 
+        try:
             ipAddresses = [str(ip) for ip in ipaddress.IPv4Network(iIpRange)]
             return ipAddresses
         except:
@@ -80,7 +80,8 @@ class IP_Parser:
         ipList = [ip for ip in ipList if ip not in self.ip_exclusion]
 
         ipSet = set(ipList)
-        self.ip_list = list(ipSet)
+        ipList = list(ipSet).sort()
+        self.ip_list = ipList
 
     def generateExclusionList(self):
         print ("Generating IP Exclusion List...")
